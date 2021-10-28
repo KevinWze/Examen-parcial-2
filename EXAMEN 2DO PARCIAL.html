@@ -1,0 +1,147 @@
+<script>
+alert("Bienvenido al estacionamiento");
+
+var matricula = prompt("Ingresa tu matricula");
+var marca = prompt("Ingresa tu marca");
+
+console.log(matricula);
+console.log(marca);
+
+
+alert("Saliste del estacionamiento tienes que pagar");
+var tiempo = prompt("Ingresa el tiempo que estuvo en el estacionamiento (en horas)");
+switch (tiempo) {
+
+    case "1":
+        alert("El costo es de $100");
+        break;
+    case "2":
+        alert("El costo es de $100");
+        break;
+    case "3":
+        alert("El costo es de $100");
+        break;
+    case "4":
+        alert("El costo es de $300");
+        break;
+    case "5":
+        alert("El costo es de $300");
+        break;
+    case "6":
+        alert("El costo es de $500");
+        break;
+    case "7":
+        for (var i = 0; i > 7; i++) {
+            alert("El costo es de $500");
+        }
+}
+
+console.log(tiempo);
+carros = [];
+function ingresoAutos(matricula, marca){
+    carros.add([]);
+    carros[length(carros)-1].add(marca);
+    carros[length(carros)-1].add(matricula);
+    console.log("auto agregado correctamente");
+}
+function mostrarCarros(){
+    for (let i = 0; i < carros.length; i++) {
+        alert(carros[i]);
+    }
+}
+function BuscarMatricula(matricula){
+    for (let i = 0; i < carros.length; i++) {
+        if (carros[i][1] == matricula) {
+            console.log("es carro es el siguiente" + carros[i]);
+        }
+    }
+}
+function BuscarPorMarca(marca){
+        for (let i = 0; i < carros.length; i++) {
+            for(let j =0; i < carros[i].length;i++){
+		if (carros[i][j] == marca) {
+                console.log("carro encontrado" + carros[i]); 
+		}
+            }
+	}
+}
+function pago(Matricula){
+        for (let i = 0; i < carros.length; i++) {
+            for(let j = 0; j < carros.length; j++) {
+                if(carros[i][j] == Matricula){
+               	   horas= Read("Ingresa el tiempo que estuvo en el estacionamiento (en horas)");        
+               	   var precio=0;
+           
+                   if(horas > 1 && horas <= 3){
+                      precio=100;
+                   }
+                   else if(horas > 3 && horas <= 6){
+                      precio=300;
+                   }
+                   else{
+                      precio= 500;
+                  }
+                   console.log("precio a pagar "+ precio);
+    
+		   while(true){
+                      if(pagoCliente<precio){
+                         console.log("la cantidad recibida no corresponde del precio a pagar");
+                         precioCliente=prompt("vuelva a ingresar la cantidad");
+                      }else{
+                        break;
+                      } 
+	          }
+		  if(pagoCliente>precio){
+		       var vuelto = pagoCliente - precio;
+		       alert("Su vuelto es de " + vuelto);
+		       alert("Venta Exitosa");
+			   carros.splice(i,1);
+		       break;
+		  }
+		  else if(pagoCliente==precio){
+		       alert("Venta Exitosa");
+		       carros.splice(i,1);
+		       break;
+		  }	
+	      }
+	   }
+	   
+        }
+}
+while(true){
+	var opcion = prompt("Bienvenido al estacionamiento\ningrese 1 para ingresar auto\n" + "ingrese 2 para el pago de un auto\n" + "\nIngrese 3 para mostrar los autos en el estacionamineto\ningrese 4 para buscar autos\nIngrese 5 para salir\nIngrese su opcion:");
+        if(opcion== 1){
+                matricula = prompt("ingrese la matricula del carro:");
+                marca=prompt("ingrese la marca del carro:");
+                ingresoAutos(matricula , marca);
+        }
+        else if(opcion== 2){
+                matricula = prompt("ingrese la matricula del carro a pagar:");
+                pago(matricula);
+        }
+            
+        else if(opcion== 3){
+                mostrarCarros();
+        }
+        else if(opcion==4){
+                while(true){
+                    var seleccion2 = prompt("ingrese 1 para buscar por matricula" + "ingrese 2 para buscar por marca" + "ingrese 3 para volver al menu anterior" + "ingrese su opcion:");
+                    if(seleccion2 == 1){
+                        matricula = prompt("ingrese la matricula del carro:");
+                        BuscarMatricula(matricula);
+                        alert ("carro encontrado", matricula );                        
+                     }
+                   else if (seleccion2 == 2){
+                       marca = prompt("ingrese la marca del carro:");
+                       BuscarPorMarca(marca);
+                   }
+                   else if (seleccion == 3){
+                       break;
+                   }
+		}
+	}
+	else if(opcion == 5){
+            break;
+	}
+}
+</script>
